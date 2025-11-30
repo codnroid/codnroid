@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <img src={logo} alt="CODNROID" className="h-12 w-auto mb-4" />
+            <img src={logo} alt="CODNROID" className="h-28 w-auto mb-4" />
             <p className="text-muted-foreground mb-4">
               Building world-class digital products for global clients.
             </p>
@@ -58,14 +58,14 @@ const Footer = () => {
               >
                 <Instagram className="h-5 w-5" />
               </a>
-              <a
+              {/* <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="h-10 w-10 rounded-lg glass-card hover:scale-110 flex items-center justify-center transition-all"
               >
                 <Facebook className="h-5 w-5" />
-              </a>
+              </a> */}
               <a
                 href="https://linkedin.com"
                 target="_blank"
