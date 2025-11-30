@@ -160,7 +160,7 @@ const Projects = () => {
                     {/* <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" /> */}
                   {/* <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/50 to-transparent" /> */}
                 </div>
-
+{/*  */}
                 {/* Content */}
                 <div className="p-2 md:p-6 space-y-4">
                   <div>
