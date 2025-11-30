@@ -2,31 +2,48 @@ import { ExternalLink, Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import FnK from "@/assets/FoodandKitchen.png";
+import Outvibe from "@/assets/Outvibe.png";
+import EasyTravel from "@/assets/EasyTravel.png";
 
 const projects = [
   {
     id: "shopswift",
-    title: "ShopSwift",
-    subtitle: "E-Commerce Platform",
-    description: "React + Node.js web app for online shopping with dynamic product recommendations and seamless checkout experience.",
+    title: "F & K",
+    img: FnK,
+    subtitle: "Food and Kitchen - E-commerce Platform",
+    description:
+      "F & K is a vibrant and modern food e-commerce web application designed to provide a premium, Gen-Z-friendly online ordering experience.",
     gradient: "from-brand-purple to-brand-cyan",
-    tech: ["React", "Node.js", "MongoDB", "Stripe"],
+    tech: ["React", "Node.js", "MongoDB", "Tailwind CSS", "Htlm5", "Css3"],
   },
   {
     id: "tasky-pro",
-    title: "Tasky Pro",
-    subtitle: "Project Management App",
-    description: "Real-time project collaboration tool for teams across devices with task tracking, time management, and team chat.",
+    title: "Outvibe",
+    img: Outvibe,
+    subtitle: "Your Vibe, Your Style - Fashion E-commerce",
+    description:
+      "Outvibe is a stylish and modern Gen Z–focused fashion e-commerce platform designed to deliver a smooth, engaging, and aesthetic online shopping experience.",
     gradient: "from-brand-coral to-brand-orange",
-    tech: ["React Native", "Firebase", "WebSocket"],
+    tech: ["React", "Node.js", "MongoDB", "Tailwind CSS", "Htlm5", "Css3"],
   },
   {
     id: "finedge",
-    title: "FinEdge",
-    subtitle: "Finance Tracker SaaS",
-    description: "Helps users track expenses, visualize spending data, and manage financial goals with intelligent insights.",
+    title: "Easy Travel",
+    subtitle: "Book Flights, Hotels and tours",
+    img: EasyTravel,
+    description:
+      "Easy Travel is a modern travel booking platform built with React, TypeScript, and Tailwind CSS. It offers users a seamless experience to search and book flights, hotels, and vacation packages with smart filtering and wishlist features.",
     gradient: "from-brand-cyan to-brand-purple",
-    tech: ["Next.js", "PostgreSQL", "Chart.js"],
+    tech: [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Stripe",
+      "Tailwind CSS",
+      "Html5",
+      "CSS3",
+    ],
   },
 ];
 
@@ -42,10 +59,10 @@ const Projects = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setHeaderVisible(true);
-            const projectCards = entry.target.querySelectorAll('.project-card');
+            const projectCards = entry.target.querySelectorAll(".project-card");
             projectCards.forEach((card, index) => {
               setTimeout(() => {
-                setVisibleProjects(prev => [...prev, index]);
+                setVisibleProjects((prev) => [...prev, index]);
               }, index * 75);
             });
           }
@@ -62,12 +79,20 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" className="py-8 md:py-24 lg:py-32 px-4 relative" ref={sectionRef}>
+    <section
+      id="projects"
+      className="py-8 md:py-24 lg:py-32 px-4 relative"
+      ref={sectionRef}
+    >
       <div className="container mx-auto max-w-7xl">
         {/* Section header */}
-        <div className={`text-left md:text-center mb-12 md:mb-16 transition-all duration-700 ${
-          headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
-        }`}>
+        <div
+          className={`text-left md:text-center mb-12 md:mb-16 transition-all duration-700 ${
+            headerVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-10"
+          }`}
+        >
           <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
             Our Work — <span className="gradient-text">What We've Built</span>
           </h2>
@@ -80,54 +105,76 @@ const Projects = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {projects.map((project, index) => {
             const isVisible = visibleProjects.includes(index);
-            const direction = index % 2 === 0 ? 'translate-x-[-100%]' : 'translate-x-[100%]';
-            
+            const direction =
+              index % 2 === 0 ? "translate-x-[-100%]" : "translate-x-[100%]";
+
             return (
               <div
                 key={index}
                 onClick={() => navigate(`/project/${project.id}`)}
                 className={`project-card glass-card rounded-2xl overflow-hidden group cursor-pointer hover:scale-[1.02] hover:shadow-2xl transition-all duration-500 ${
-                  isVisible ? 'opacity-100 translate-x-0' : `opacity-0 ${direction}`
+                  isVisible
+                    ? "opacity-100 translate-x-0"
+                    : `opacity-0 ${direction}`
                 }`}
-                style={{ 
-                  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                  transitionDelay: isVisible ? `${index * 0.08}s` : '0s'
+                style={{
+                  transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                  transitionDelay: isVisible ? `${index * 0.08}s` : "0s",
                 }}
               >
                 {/* Gradient header */}
-                <div className={`h-56 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-all duration-500" />
-                  
+                <div
+                  className={`h-56  ${project.gradient} relative overflow-hidden`}
+                >
+                  {/* <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-all duration-500" /> */}
+
                   {/* Floating particles effect */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="absolute top-10 left-10 w-2 h-2 bg-white rounded-full animate-float" style={{ animationDelay: '0s' }} />
-                    <div className="absolute top-20 right-16 w-1.5 h-1.5 bg-white/70 rounded-full animate-float" style={{ animationDelay: '0.5s' }} />
-                    <div className="absolute bottom-14 left-20 w-1 h-1 bg-white/50 rounded-full animate-float" style={{ animationDelay: '1s' }} />
-                  </div>
-                  
-                  {/* Center icon */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="relative transform group-hover:scale-110 transition-transform duration-500">
-                      <Sparkles className="h-16 w-16 text-white opacity-70 group-hover:opacity-0 transition-all duration-300 absolute inset-0" />
-                      <ArrowRight className="h-16 w-16 text-white opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-2" />
+                    {/* <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div
+                      className="absolute top-10 left-10 w-2 h-2 bg-white rounded-full animate-float"
+                      style={{ animationDelay: "0s" }}
+                    />
+                    <div
+                      className="absolute top-20 right-16 w-1.5 h-1.5 bg-white/70 rounded-full animate-float"
+                      style={{ animationDelay: "0.5s" }}
+                    />
+                    <div
+                      className="absolute bottom-14 left-20 w-1 h-1 bg-white/50 rounded-full animate-float"
+                      style={{ animationDelay: "1s" }}
+                    />
+                    </div> */}
+
+                    {/* Center icon */}
+                    <div className="absolute  flex items-center justify-center">
+                    <div className="relative flex items-center justify-center transform group-hover:scale-105 transition-transform duration-500">
+                      <img
+                      src={project.img}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      />
                     </div>
-                  </div>
-                  
-                  {/* Animated shine effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                  
-                  {/* Bottom gradient overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/50 to-transparent" />
+                    </div>
+
+                    {/* Animated shine effect */}
+                    {/* <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" /> */}
+                  {/* <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/50 to-transparent" /> */}
                 </div>
 
                 {/* Content */}
-                <div className="p-4 md:p-6 space-y-4">
+                <div className="p-2 md:p-6 space-y-4">
                   <div>
-                    <h3 className="text-2xl font-bold mb-1 group-hover:text-primary transition-colors">{project.title}</h3>
-                    <p className="text-sm text-muted-foreground font-medium">{project.subtitle}</p>
+                    <h3 className="text-2xl font-bold mb-1 group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground font-medium">
+                      {project.subtitle}
+                    </p>
                   </div>
-                  <p className="text-muted-foreground leading-relaxed line-clamp-2">{project.description}</p>
-                  
+                  <p className="text-muted-foreground leading-relaxed line-clamp-2">
+                    {project.description}
+                  </p>
+
                   {/* Tech stack */}
                   <div className="flex flex-wrap gap-2 pt-2">
                     {project.tech.map((tech, i) => (
@@ -140,7 +187,7 @@ const Projects = () => {
                       </span>
                     ))}
                   </div>
-                  
+
                   {/* View Details Link */}
                   <div className="flex items-center gap-2 text-primary font-semibold pt-2 group-hover:gap-4 transition-all">
                     <span>View Details</span>
@@ -154,11 +201,15 @@ const Projects = () => {
 
         {/* CTA */}
         <div className="text-center mt-16 animate-fade-in">
-          <Button 
-            size="lg" 
-            variant="outline" 
+          <Button
+            size="lg"
+            variant="outline"
             className="glass-card font-semibold group hover:scale-105 transition-all border-2"
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() =>
+              document
+                .getElementById("contact")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
             Ready to Start Your Project?
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
