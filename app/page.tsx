@@ -1,10 +1,13 @@
 import { Navigation } from '@/components/site/navigation';
 import { Contact, Footer } from '@/components/site/contact';
 import { Hero } from '@/components/site/hero';
-import { Work, FeaturedProject } from '@/components/site/work';
+import { Work } from '@/components/site/work';
 import { Services, About, Process } from '@/components/site/studio';
 import { Technology } from '@/components/site/technology';
 import { Testimonials, FAQ } from '@/components/site/questions';
+import { ProjectPlanner } from '@/components/site/project-planner';
+import { FloatingWhatsApp } from '@/components/site/floating-whatsapp';
+
 export default function Home() {
   return (
     <div className="site-canvas" id="top">
@@ -16,15 +19,16 @@ export default function Home() {
         <Hero />
         <Work />
         <Services />
-        <FeaturedProject />
-        <About />
-        <Process />
+        <ProjectPlanner />
         <Technology />
+        <Process />
+        <About />
         <Testimonials />
         <FAQ />
         <Contact />
       </main>
       <Footer />
+      <FloatingWhatsApp />
     </div>
   );
 }

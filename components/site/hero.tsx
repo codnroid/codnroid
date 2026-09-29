@@ -1,7 +1,6 @@
 import { ArrowDown, ArrowUpRight, Atom, Braces, Wind } from 'lucide-react';
 import { ProjectLink } from './primitives';
 import { ProductScene } from './product-scene';
-import { siteConfig } from '@/lib/site';
 
 export function Hero() {
   return (
@@ -10,48 +9,47 @@ export function Hero() {
         <div className="hero-copy">
           <p className="eyebrow">
             <span />
-            Digital Product Studio
+            DIGITAL PRODUCT STUDIO
           </p>
           <h1 id="hero-heading">
-            We turn ideas
-            <br />
-            into{' '}
-            <span className="gradient-text">
-              digital
-              <br className="hero-break" /> experiences.
-            </span>
+            We design and build{' '}
+            <span className="gradient-text">digital products</span> that move
+            businesses forward.
           </h1>
-          <p className="hero-description">{siteConfig.description}</p>
+          <p className="hero-description">
+            Websites, e-commerce experiences, SaaS platforms, and mobile
+            applications designed and engineered from concept to launch.
+          </p>
           <div className="hero-actions">
-            <ProjectLink />
+            <ProjectLink>Start a Project</ProjectLink>
             <a href="#work" className="button button-secondary">
               Explore Our Work
-              <ArrowUpRight size={17} aria-hidden="true" />
+              <ArrowDown size={16} aria-hidden="true" />
             </a>
           </div>
           <p className="hero-capabilities">
-            Web Development <span>·</span> SaaS <span>·</span> Mobile{' '}
-            <span>·</span> E-Commerce <span>·</span> WordPress
+            Web Development <span>·</span> Mobile Apps <span>·</span> SaaS{' '}
+            <span>·</span> E-Commerce <span>·</span> UI/UX Design
           </p>
         </div>
         <ProductScene />
         <div className="hero-bottom">
-          <span>Thoughtfully designed. Carefully engineered.</span>
+          <span>Look at what we can build for your business.</span>
           <a href="#work" aria-label="Scroll to selected work">
             <ArrowDown size={15} />
-            <span>SCROLL TO EXPLORE</span>
+            <span>SCROLL TO EXPLORE WORK</span>
           </a>
         </div>
       </section>
       <div className="credibility">
         <p>
-          MODERN FOUNDATIONS.
+          ENGINEERED FOR SCALE.
           <br />
-          <span>Built with technologies we use.</span>
+          <span>Modern full-stack technical foundation.</span>
         </p>
         <div>
           <Atom />
-          <strong>React</strong>
+          <strong>React & Next.js</strong>
         </div>
         <div>
           <Braces />
@@ -61,9 +59,9 @@ export function Hero() {
           <Wind />
           <strong>Tailwind CSS</strong>
         </div>
-        <span className="credibility-note">
-          The stack behind this site <ArrowUpRight size={13} />
-        </span>
+        <a href="#technology" className="credibility-note">
+          Explore our capabilities <ArrowUpRight size={13} />
+        </a>
       </div>
     </>
   );

@@ -11,11 +11,12 @@ export interface NavigationItem {
   href: string;
 }
 export const navigation: NavigationItem[] = [
-  { label: 'Services', href: '#services' },
   { label: 'Work', href: '#work' },
+  { label: 'Services', href: '#services' },
+  { label: 'Planner', href: '#planner' },
   { label: 'Process', href: '#process' },
   { label: 'About', href: '#about' },
-  { label: 'Insights', href: '#insights' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 export function getProjectLink(formUrl: string = siteConfig.googleFormUrl) {
@@ -36,8 +37,8 @@ export function getProjectLink(formUrl: string = siteConfig.googleFormUrl) {
         };
       }
     } catch {
-      /* Invalid configuration uses the contact section. */
+      /* Invalid configuration uses the planner section. */
     }
   }
-  return { href: '#contact', external: false };
+  return { href: '#planner', external: false };
 }

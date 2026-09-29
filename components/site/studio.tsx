@@ -1,3 +1,4 @@
+import type { LucideIcon } from 'lucide-react';
 import {
   ArrowUpRight,
   Code2,
@@ -8,18 +9,21 @@ import {
   Sparkles,
   Search,
   Workflow,
+  Server,
 } from 'lucide-react';
 import { services, principles, processSteps } from '@/lib/content';
 import { ProjectLink, SectionHeading } from './primitives';
 import { ProcessStepper } from './process-stepper';
 
-const serviceIcons = {
+const serviceIcons: Record<string, LucideIcon> = {
   web: Code2,
+  commerce: ShoppingBag,
+  apps: Layers,
+  mobile: Smartphone,
+  saas: Workflow,
+  backend: Server,
   design: Layers,
   wordpress: Globe,
-  apps: Smartphone,
-  saas: Workflow,
-  commerce: ShoppingBag,
   seo: Search,
   brand: Sparkles,
 };

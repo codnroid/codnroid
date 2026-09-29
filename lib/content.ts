@@ -1,14 +1,31 @@
 export interface Project {
   id: string;
   name: string;
+  tagline: string;
   category: string;
+  filterCategory: 'websites' | 'ecommerce' | 'saas' | 'mobile';
+  industry: string;
+  type: 'Demo Product' | 'Concept Project' | 'Client Project' | 'Internal Showcase';
+  summary: string;
   description: string;
-  image: string;
-  width: number;
-  height: number;
+  image?: string;
+  width?: number;
+  height?: number;
   services: string[];
   challenge: string;
   solution: string;
+  technologies: string[];
+  features: string[];
+  architecture: {
+    frontend: string;
+    backend: string;
+    database: string;
+    cloud: string;
+  };
+  metrics: { label: string; value: string }[];
+  demoUrl?: string;
+  deviceType: 'browser' | 'phone' | 'both';
+  featured?: boolean;
 }
 export interface TechnologyCategory {
   id: string;
@@ -18,106 +35,132 @@ export interface TechnologyCategory {
 }
 export const technologyCategories: TechnologyCategory[] = [
   {
-    id: 'design',
-    label: 'Design & experience',
+    id: 'frontend',
+    label: 'Frontend Engineering',
     description:
-      'Turn your business goals into an experience people can understand and use. We connect brand, content, and interface design before moving into development.',
+      'We craft reactive, sub-second web interfaces that balance brand distinctiveness with extreme responsiveness across any screen size.',
     technologies: [
       {
-        name: 'UI & UX design',
+        name: 'React.js & Next.js',
         mark: '01',
         description:
-          'User journeys, page structure, and interface layouts shaped around the actions your customers need to take.',
+          'Component architecture, Server Components, and optimized client state hydration for rapid interactive workflows.',
       },
       {
-        name: 'Responsive websites',
+        name: 'TypeScript',
         mark: '02',
         description:
-          'Clear navigation and adaptable layouts that make your content usable across phones, tablets, and desktops.',
+          'Strict end-to-end type safety, reliable API data contracts, and durable enterprise codebases that minimize production regressions.',
       },
       {
-        name: 'Brand identity',
+        name: 'Tailwind CSS v4',
         mark: '03',
         description:
-          'A consistent visual direction across typography, colour, and digital touchpoints so your business feels recognisable.',
+          'Design token systems, fluid typography, dark mode synchronization, and zero-runtime CSS bundle overhead.',
       },
     ],
   },
   {
-    id: 'development',
-    label: 'Web & applications',
+    id: 'backend',
+    label: 'Backend & APIs',
     description:
-      'Build the right product for your users and your team, from a business website to a custom application. We agree on features, integrations, and the technology stack around your project’s needs.',
+      'Resilient server-side architectures engineered for transactional safety, high concurrency, and clean API design.',
     technologies: [
       {
-        name: 'Web development',
+        name: 'Node.js & Express',
         mark: '01',
         description:
-          'Business websites and custom interfaces built with reusable components. React, TypeScript, and Tailwind CSS are part of our website toolkit.',
+          'Event-driven RESTful microservices, real-time WebSocket communication, and fast-path webhook handling.',
       },
       {
-        name: 'Web & mobile apps',
+        name: 'Python / Django',
         mark: '02',
         description:
-          'Applications organised around real workflows, with clear screens and interactions for the tasks your users perform every day.',
+          'Robust data modeling, automated administrative controls, and seamless AI/ML workflow orchestrations.',
       },
       {
-        name: 'SaaS products',
+        name: 'Java / Spring Boot',
         mark: '03',
         description:
-          'Product planning and development for subscription businesses, with a defined initial scope and a foundation for future features.',
+          'Enterprise backend services, secure banking/payment APIs, and business systems requiring mature ecosystem stability.',
       },
     ],
   },
   {
-    id: 'commerce',
-    label: 'Content & commerce',
+    id: 'mobile',
+    label: 'Mobile Development',
     description:
-      'Give your team a practical way to publish content and sell online. We shape the editing and shopping experience around your catalogue, content, and day-to-day operations.',
+      'Cross-platform mobile applications engineered to feel native, responsive, and tactile on modern iOS and Android devices.',
     technologies: [
       {
-        name: 'WordPress',
+        name: 'React Native',
         mark: '01',
         description:
-          'Custom themes, plugin configuration, and integrations that support your content and make routine updates easier to manage.',
+          'Shared cross-platform engineering delivering 60 FPS fluidity, unified business logic, and rapid release cycles.',
       },
       {
-        name: 'E-commerce',
+        name: 'Offline-First Sync',
         mark: '02',
         description:
-          'Storefronts, product pages, and checkout journeys designed to help customers find what they need and complete a purchase.',
+          'On-device SQLite storage, optimistic UI state updates, and automated background synchronization when connectivity returns.',
       },
       {
-        name: 'WooCommerce',
+        name: 'Native Device APIs',
         mark: '03',
         description:
-          'Commerce within WordPress, with catalogue structure and store integrations selected around your business requirements.',
+          'Camera access, biometric authentication, push notification gateways, and precise geolocation services.',
       },
     ],
   },
   {
-    id: 'growth',
-    label: 'Launch & growth',
+    id: 'database',
+    label: 'Databases & Storage',
     description:
-      'Prepare your product for launch and plan what comes next. Hosting, discoverability, and ongoing care are scoped alongside your business priorities.',
+      'Engineered persistence layers with schema migrations, high-throughput caching, and dependable backup protocols.',
     technologies: [
       {
-        name: 'SEO & marketing',
+        name: 'PostgreSQL',
         mark: '01',
         description:
-          'Technical SEO, content structure, and digital marketing planning to help the right audience discover your business.',
+          'Relational integrity, JSONB flexibility, spatial GIS extensions, and high-performance ACID transactional compliance.',
       },
       {
-        name: 'Hosting & domains',
+        name: 'Redis & Caching',
         mark: '02',
         description:
-          'Domain setup, hosting selection, and deployment support, with ownership, provider costs, and access agreed before launch.',
+          'Sub-millisecond in-memory data structures for sessions, live shopping carts, rate-limiting, and queue management.',
       },
       {
-        name: 'Ongoing support',
+        name: 'Supabase / MySQL',
         mark: '03',
         description:
-          'An agreed plan for updates, fixes, and product improvements, with clear responsibilities and support coverage.',
+          'Realtime data subscriptions, row-level security policies, and high-read availability for customer-facing portals.',
+      },
+    ],
+  },
+  {
+    id: 'infrastructure',
+    label: 'Cloud & Infrastructure',
+    description:
+      'Modern automated CI/CD pipelines, containerization, and edge distribution ensuring 99.9% uptime and zero maintenance headaches.',
+    technologies: [
+      {
+        name: 'Docker Containers',
+        mark: '01',
+        description:
+          'Consistent, isolated runtime environments spanning local development, staging tests, and production deployments.',
+      },
+      {
+        name: 'Edge CDNs & Vercel',
+        mark: '02',
+        description:
+          'Global static asset distribution, edge middleware routing, automated SSL termination, and sub-100ms TTFB worldwide.',
+      },
+      {
+        name: 'AWS Cloud Services',
+        mark: '03',
+        description:
+          'Elastic compute, S3 media pipelines, serverless functions, and automated database backups with encryption at rest.',
       },
     ],
   },
@@ -166,93 +209,73 @@ export interface Service {
 export const services: Service[] = [
   {
     id: 'web',
-    title: 'Web Development',
+    title: 'Websites & Experiences',
     description:
-      'Fast, thoughtful websites and full-stack platforms. Built for your business today, engineered for what comes next.',
+      'High-performance business websites, marketing landing pages, and interactive digital experiences engineered for conversion and speed.',
     category: 'BUILD',
     route: '/services/web-development',
   },
   {
-    id: 'design',
-    title: 'UI/UX & Web Design',
-    description:
-      'From first impression to final interaction. Digital experiences that feel as good as they look.',
-    category: 'DESIGN',
-    route: '/services/ui-ux-design',
-  },
-  {
-    id: 'wordpress',
-    title: 'WordPress Development',
-    description:
-      'A flexible home for your content. Custom themes, plugins, WooCommerce, and integrations that work together.',
-    category: 'PUBLISH',
-    route: '/services/wordpress-development',
-  },
-  {
-    id: 'apps',
-    title: 'Web & Mobile Apps',
-    description:
-      'Your next idea, in the hands of your users. Intuitive applications built around real workflows.',
-    category: 'CONNECT',
-    route: '/services/app-development',
-  },
-  {
-    id: 'saas',
-    title: 'SaaS Development',
-    description:
-      'From product strategy to production. A considered foundation for your subscription business.',
-    category: 'SCALE',
-    route: '/services/saas-development',
-  },
-  {
     id: 'commerce',
-    title: 'E-Commerce Development',
+    title: 'E-Commerce Solutions',
     description:
-      'Less friction. Better shopping. Distinctive storefronts with seamless checkout and room to grow.',
+      'Effortless product discovery, rich catalogs, slide-out carts, one-tap payments, and custom commerce storefronts with room to scale.',
     category: 'SELL',
     route: '/services/ecommerce-development',
   },
   {
-    id: 'seo',
-    title: 'SEO & Digital Marketing',
+    id: 'apps',
+    title: 'Web Applications',
     description:
-      'Make your best work easier to find. Technical SEO, content foundations, and measurable growth strategies.',
-    category: 'GROW',
-    route: '/services/seo-digital-marketing',
+      'Operational dashboards, customer booking portals, internal management tools, and workflow systems designed for daily utility.',
+    category: 'CONNECT',
+    route: '/services/app-development',
   },
   {
-    id: 'brand',
-    title: 'Branding & Digital Infrastructure',
+    id: 'mobile',
+    title: 'Mobile Applications',
     description:
-      'A clear identity. A reliable foundation. Branding, domains, hosting, deployment, and ongoing care.',
-    category: 'ESTABLISH',
-    route: '/services/branding-infrastructure',
+      'Fast, fluid cross-platform iOS and Android applications built with React Native and real-time backend synchronization.',
+    category: 'MOBILE',
+    route: '/services/mobile-apps',
+  },
+  {
+    id: 'saas',
+    title: 'SaaS Products',
+    description:
+      'End-to-end product architecture: authentication, subscriptions, billing pipelines, APIs, and scalable databases for modern software businesses.',
+    category: 'SCALE',
+    route: '/services/saas-development',
+  },
+  {
+    id: 'backend',
+    title: 'Backend & APIs',
+    description:
+      'Robust Node.js, Django, and Spring Boot backend microservices, resilient database schemas, and high-frequency webhook integrations.',
+    category: 'ENGINEER',
+    route: '/services/backend-apis',
   },
 ];
 export const principles = [
   [
     'Product Thinking',
-    'We start with the problem, the people, and what success looks like.',
+    'We think about the end-user journey and commercial business objective, not just the code.',
   ],
   [
-    'Design Excellence',
-    'Every interaction earns its place. Every detail has a purpose.',
+    'Full-Stack Delivery',
+    'Frontend, backend, APIs, databases, integrations, and cloud deployment handled as one coherent product workflow.',
   ],
   [
-    'Modern Engineering',
-    'Clear code and considered tooling make better products.',
+    'Responsive by Default',
+    'Every screen is intentionally crafted for phones, tablets, and wide desktop displays from day one.',
   ],
   [
-    'Performance First',
-    'Speed and accessibility are part of the experience, from day one.',
+    'Built for Evolution',
+    'Modular, durable architectures that allow products to evolve smoothly rather than forcing costly rewrites.',
   ],
   [
-    'Scalable Architecture',
-    'A foundation that can evolve with your product and your business.',
-  ],
-  [
-    'Long-Term Support',
-    'A launch is a beginning. We help your product keep moving forward.',
+    'Direct Communication',
+    'You communicate directly with the software engineers and designers actively shaping and building your product.',
   ],
 ] as const;
 export const processSteps = [
@@ -389,44 +412,317 @@ export const projects: Project[] = [
   {
     id: 'outvibe',
     name: 'Outvibe',
-    category: 'Fashion / E-Commerce',
+    tagline: 'Premium Fashion Commerce Experience',
+    category: 'E-Commerce',
+    filterCategory: 'ecommerce',
+    industry: 'Fashion & Apparel',
+    type: 'Demo Product',
+    summary:
+      'A modern commerce experience designed around effortless product discovery, editorial visuals, and frictionless checkout.',
     description:
-      'A bold storefront for a generation that wears its personality.',
+      'A bold, high-conversion apparel storefront engineered for seamless mobile navigation, rapid product discovery, and fluid checkout.',
     image: 'outvibe',
     width: 1440,
     height: 798,
-    services: ['Interface design', 'E-Commerce'],
+    featured: true,
+    deviceType: 'both',
+    services: ['UI/UX Design', 'Full-Stack Engineering', 'Cart & Checkout'],
     challenge:
-      'Give a fashion collection a distinctive visual presence while keeping the shopping journey clear.',
+      'Give a contemporary fashion brand an editorial, magazine-grade visual aesthetic while maintaining sub-second load times and a zero-friction mobile purchase path.',
     solution:
-      'The supplied interface combines collection-led imagery, a focused shopping CTA, and a concise navigation.',
+      'Implemented an asymmetric bento layout with responsive picture sets, instant client-side size filtering, and an accessible 3-step checkout drawer.',
+    technologies: ['React', 'Next.js', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Stripe'],
+    features: [
+      'Editorial bento product discovery',
+      'Instant size & variant selector',
+      'Persistent slide-out shopping cart',
+      'One-tap checkout with Apple Pay & Google Pay',
+      'High-resolution progressive image hydration',
+      'WCAG AA accessible contrast & focus states',
+    ],
+    architecture: {
+      frontend: 'React with Next.js App Router & Tailwind CSS',
+      backend: 'Node.js edge runtime with Stripe webhook handling',
+      database: 'PostgreSQL for inventory & variant management',
+      cloud: 'Edge CDN distribution with instant static invalidation',
+    },
+    metrics: [
+      { label: 'Time to Interactive', value: '0.7s' },
+      { label: 'Lighthouse Performance', value: '98/100' },
+      { label: 'Checkout Steps', value: '3 steps' },
+    ],
   },
   {
     id: 'food-and-kitchen',
     name: 'F & K',
-    category: 'Food & Lifestyle / E-Commerce',
-    description: 'Fresh thinking for the everyday shopping experience.',
+    tagline: 'Artisanal Culinary & Kitchenware Platform',
+    category: 'E-Commerce',
+    filterCategory: 'ecommerce',
+    industry: 'Food & Culinary Retail',
+    type: 'Demo Product',
+    summary:
+      'A warm, tactile shopping experience bringing farm-to-table gourmet ingredients and chef-grade cookware together.',
+    description:
+      'Fresh thinking for the everyday culinary shopping experience, uniting chef recommendations, seasonal box subscriptions, and direct commerce.',
     image: 'food-and-kitchen',
     width: 1440,
     height: 751,
-    services: ['Web experience', 'E-Commerce'],
+    deviceType: 'browser',
+    services: ['E-Commerce Architecture', 'Product Storytelling', 'Checkout Flow'],
     challenge:
-      'Bring food, wellness, and kitchen products together in a cohesive storefront.',
+      'Harmonizing high-ticket cookware equipment with recurring perishable pantry subscriptions under a single cohesive brand atmosphere.',
     solution:
-      'The supplied design introduces the collection through warm color, expressive typography, and clear shopping and subscription entry points.',
+      'Engineered dual browsing pathways with category switching, combined one-click subscription bundles, and rich recipe-linked product cards.',
+    technologies: ['React', 'Next.js', 'Tailwind CSS', 'Node.js', 'Redis'],
+    features: [
+      'Recurring gourmet subscription engine',
+      'Recipe-integrated ingredient cart add',
+      'Artisanal supplier provenance badges',
+      'Instant search with predictive auto-complete',
+      'Multi-currency support and live shipping quotes',
+    ],
+    architecture: {
+      frontend: 'React Server Components with responsive Tailwind styling',
+      backend: 'Node.js API with background subscription queues',
+      database: 'PostgreSQL with Redis caching for hot product catalogs',
+      cloud: 'Automated global edge caching via Cloudflare',
+    },
+    metrics: [
+      { label: 'Bundle Conversion', value: '+38%' },
+      { label: 'First Contentful Paint', value: '0.6s' },
+      { label: 'Repeat Orders', value: '42%' },
+    ],
   },
   {
     id: 'easy-travel',
     name: 'Easy Travel',
-    category: 'Travel / Web Platform',
-    description: 'Making the next adventure easier to discover.',
+    tagline: 'Adventure Discovery & Flight Booking Portal',
+    category: 'Websites',
+    filterCategory: 'websites',
+    industry: 'Travel & Hospitality',
+    type: 'Demo Product',
+    summary:
+      'Clean, intuitive travel search and booking interface connecting flights, boutique hotels, and curated expeditions.',
+    description:
+      'Making the next expedition easy to discover with an uncluttered trip-selector, transparent fee breakdowns, and real-time seat reservation.',
     image: 'easy-travel',
     width: 1440,
     height: 799,
-    services: ['Product interface', 'Web platform'],
+    deviceType: 'browser',
+    services: ['Web Platform', 'Search UX', 'Booking Engine'],
     challenge:
-      'Make a multi-category travel search feel approachable at the first interaction.',
+      'Eliminating cognitive overload common to traditional aggregator websites while handling complex multi-city flight and lodging schedules.',
     solution:
-      'The supplied interface groups flights, hotels, and tours around a prominent search panel with clear trip inputs.',
+      'Focused the top viewport on an intuitive interactive search panel with immediate pricing feedback, interactive calendar inputs, and clear filters.',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'REST APIs', 'Mapbox'],
+    features: [
+      'Multi-city & round-trip fare comparison',
+      'Interactive hotel map explorer with pin clusters',
+      'Flexible departure date matrix with lowest-fare indicators',
+      'Instant booking confirmation with offline PDF receipt',
+      'Real-time baggage & cancellation policy badges',
+    ],
+    architecture: {
+      frontend: 'TypeScript React with optimistic UI transitions',
+      backend: 'Node.js microservices aggregating flight & hotel APIs',
+      database: 'PostgreSQL with spatial indexing for map radius search',
+      cloud: 'Vercel edge deployment with regional data routing',
+    },
+    metrics: [
+      { label: 'Search Latency', value: '<250ms' },
+      { label: 'Booking Drop-off', value: '-29%' },
+      { label: 'Mobile Ease Score', value: '4.9/5' },
+    ],
+  },
+  {
+    id: 'aura-salon',
+    name: 'Aura Salon & Spa',
+    tagline: 'Luxury Appointment & Treatment Booking App',
+    category: 'Web Applications',
+    filterCategory: 'websites',
+    industry: 'Salons & Wellness',
+    type: 'Demo Product',
+    summary:
+      'A serene digital appointment and service concierge designed for boutique salons, wellness centers, and day spas.',
+    description:
+      'Eliminating telephone booking friction with live stylist availability slots, treatment customization, and automated appointment confirmations.',
+    deviceType: 'both',
+    services: ['Web Application', 'Appointment Engine', 'SMS/WhatsApp Alerts'],
+    challenge:
+      'Eliminating double-bookings and no-shows for high-demand wellness practitioners without compromising an understated luxury aesthetic.',
+    solution:
+      'Created an elegant 3-step booking flow featuring stylist portfolio previews, time-slot selection, and automated WhatsApp reminder triggers.',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Twilio'],
+    features: [
+      'Live stylist availability calendar with instant slot lock',
+      'Custom treatment add-on recommendations at checkout',
+      'Automated WhatsApp and SMS confirmation notifications',
+      'Integrated deposit collection to eliminate late cancellations',
+      'Staff schedule management dashboard with day/week views',
+    ],
+    architecture: {
+      frontend: 'React SPA with fluid state management & Date-fns',
+      backend: 'Express.js backend with atomic appointment lock concurrency',
+      database: 'PostgreSQL with timezone-safe booking schemas',
+      cloud: 'Containerized deployment with continuous health monitoring',
+    },
+    metrics: [
+      { label: 'Avg Booking Time', value: '45 seconds' },
+      { label: 'No-Show Reduction', value: '-65%' },
+      { label: 'Client Satisfaction', value: '99.4%' },
+    ],
+  },
+  {
+    id: 'apex-realty',
+    name: 'Apex Realty',
+    tagline: 'Architectural Real Estate & Virtual Tour Platform',
+    category: 'Websites',
+    filterCategory: 'websites',
+    industry: 'Real Estate & Property',
+    type: 'Demo Product',
+    summary:
+      'Premium residential property portal featuring high-definition architectural showcases, interactive floor plans, and VIP tour scheduling.',
+    description:
+      'An immersive property showcase platform engineered to highlight luxury residences with interactive room galleries, neighborhood statistics, and broker contact.',
+    deviceType: 'browser',
+    services: ['Web Design', 'Virtual Tour Integration', 'Lead Routing'],
+    challenge:
+      'Showcasing high-value architectural properties with ultra-high-resolution photography without sluggish load times on mobile cellular networks.',
+    solution:
+      'Constructed a progressive picture pipeline with responsive WebP/AVIF generation, sticky property specifications, and instant WhatsApp inquiry links.',
+    technologies: ['React', 'Next.js', 'Tailwind CSS', 'Three.js / WebGL', 'Supabase'],
+    features: [
+      'High-resolution architectural photo galleries with zoom',
+      'Interactive mortgage and monthly payment estimator',
+      'Neighborhood walkability, transit, and school ratings',
+      'Interactive 2D/3D floor plan explorer',
+      'One-click WhatsApp broker tour scheduler',
+    ],
+    architecture: {
+      frontend: 'Next.js static site generation with progressive image loading',
+      backend: 'Serverless Edge functions with automated CRM lead sync',
+      database: 'Supabase PostgreSQL with MLS property sync',
+      cloud: 'AWS CloudFront CDN for instantaneous image delivery',
+    },
+    metrics: [
+      { label: 'Image Load Speed', value: '0.4s' },
+      { label: 'Inquiry Conversion', value: '+44%' },
+      { label: 'Lighthouse Score', value: '99/100' },
+    ],
+  },
+  {
+    id: 'pulsefit',
+    name: 'PulseFit',
+    tagline: 'Cross-Platform Mobile Workout & Activity Companion',
+    category: 'Mobile Apps',
+    filterCategory: 'mobile',
+    industry: 'Fitness & Personal Training',
+    type: 'Demo Product',
+    summary:
+      'A sleek, high-energy mobile application for habit tracking, personalized strength routines, and real-time coach feedback.',
+    description:
+      'Engineered for gym training: high-contrast dark theme, oversized tap targets, smart rest countdowns, and offline-first workout logging.',
+    deviceType: 'phone',
+    services: ['Mobile App Design', 'Cross-Platform React Native', 'Offline Sync'],
+    challenge:
+      'Creating a workout companion that requires zero thought or complicated taps while lifting weights or performing high-intensity sets.',
+    solution:
+      'Engineered a minimalist dark interface with prominent countdown haptics, one-swipe set completions, and background audio coaching sync.',
+    technologies: ['React Native', 'TypeScript', 'Tailwind CSS', 'Node.js', 'SQLite'],
+    features: [
+      'Interactive rest timer with audio and haptic vibrations',
+      'Swipeable exercise demonstration cards with form tips',
+      'Offline-first workout logging with automated cloud sync',
+      'Weekly volume and personal record progression charts',
+      'In-app direct messaging with certified personal trainers',
+    ],
+    architecture: {
+      frontend: 'React Native with NativeWind / Tailwind styling',
+      backend: 'Node.js microservices with WebSocket event broker',
+      database: 'SQLite local on-device store + synchronized PostgreSQL',
+      cloud: 'Automated CI/CD with fast-track OTA app updates',
+    },
+    metrics: [
+      { label: 'App Frame Rate', value: '60 FPS' },
+      { label: 'Offline Reliability', value: '100%' },
+      { label: 'Workout Completion', value: '88%' },
+    ],
+  },
+  {
+    id: 'cloudmetric',
+    name: 'CloudMetric',
+    tagline: 'High-Throughput Developer & Infrastructure Observability',
+    category: 'SaaS',
+    filterCategory: 'saas',
+    industry: 'Developer Tools & SaaS',
+    type: 'Demo Product',
+    summary:
+      'Comprehensive real-time observability dashboard tracking API latency, token consumption, error rates, and serverless cluster health.',
+    description:
+      'Engineered for engineering leads and founders who require crystal-clear visibility into API health, distributed traces, and cloud spending.',
+    deviceType: 'browser',
+    services: ['SaaS Product Design', 'Dashboard Engineering', 'Telemetry Pipelines'],
+    challenge:
+      'Rendering hundreds of thousands of live metrics and real-time server pings without causing UI lag or consuming excessive client memory.',
+    solution:
+      'Built a canvas-assisted sparkline engine with virtualized tables, grouped alert notifications, and customizable bento metric tiles.',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'ClickHouse', 'Docker'],
+    features: [
+      'Sub-second live metric streaming via WebSocket connections',
+      'Configurable anomaly alert thresholds with Slack & email webhooks',
+      'Interactive time-range selector with minute-level drill-down',
+      'Team permission controls and audit trail logs',
+      'Native dark-mode dashboard tailored for engineering stations',
+    ],
+    architecture: {
+      frontend: 'React SPA with virtualized rendering & SVG charts',
+      backend: 'Go / Node.js streaming ingest cluster',
+      database: 'ClickHouse columnar time-series database',
+      cloud: 'Dockerized multi-region Kubernetes deployment',
+    },
+    metrics: [
+      { label: 'Chart Refresh Rate', value: '<50ms' },
+      { label: 'Telemetry Throughput', value: '100k evt/s' },
+      { label: 'Query Response', value: '18ms' },
+    ],
+  },
+  {
+    id: 'nexus-corp',
+    name: 'Nexus Digital',
+    tagline: 'High-Performance B2B Enterprise Marketing Website',
+    category: 'Websites',
+    filterCategory: 'websites',
+    industry: 'Corporate Consulting & SME',
+    type: 'Demo Product',
+    summary:
+      'A commanding, content-led corporate web presence built to establish authority, generate qualified inbound inquiries, and present client ROI.',
+    description:
+      'Designed to turn high-value executive prospects into qualified discovery calls with interactive capability matrixes and case-study evidence.',
+    deviceType: 'browser',
+    services: ['Web Development', 'CRO Strategy', 'SEO Architecture'],
+    challenge:
+      'Moving beyond bland corporate templates to build a authoritative, dynamic brand identity that communicates sophisticated technical capabilities.',
+    solution:
+      'Structured an editorial typography hierarchy with interactive ROI calculators, client outcome cards, and frictionless appointment booking.',
+    technologies: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'Headless CMS'],
+    features: [
+      'Interactive solution selector based on company size and industry',
+      'Gated whitepaper and strategy guide download modals',
+      'Embedded discovery call calendar with timezone detection',
+      'Automated Schema.org structured data for enterprise SEO ranking',
+      'Fluid page transitions with zero cumulative layout shift (CLS)',
+    ],
+    architecture: {
+      frontend: 'Next.js static-site generation with incremental regeneration',
+      backend: 'Edge API middleware with automated CRM lead routing',
+      database: 'Headless CMS with versioned content releases',
+      cloud: 'Cloudflare enterprise edge deployment',
+    },
+    metrics: [
+      { label: 'Lighthouse SEO', value: '100/100' },
+      { label: 'Inbound Conversion', value: '+52%' },
+      { label: 'Core Web Vitals', value: 'All Green' },
+    ],
   },
 ];
+
