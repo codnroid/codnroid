@@ -5875,4 +5875,98 @@ p {
   transform: translateY(-2px);
 }
 
+/* ============================================================
+   PHASE 4: SCROLL REVEAL & INTERACTIVE MOTION
+   ============================================================ */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-init.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-init {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Technology Explorer Styles */
+.technology-button.active {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: #7944ca;
+  box-shadow: 0 4px 14px rgba(121, 68, 202, 0.12);
+}
+.tech-arrow {
+  margin-left: auto;
+  font-size: 11px;
+  color: #7944ca;
+}
+.tech-aside-note {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-top: 16px;
+}
+.technology-panel-header {
+  margin-bottom: 24px;
+}
+.tech-badge-category {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #7944ca;
+  margin-bottom: 6px;
+}
+.tech-card {
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 24px;
+}
+.tech-card:hover, .tech-card.card-expanded {
+  border-color: #7944ca80;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px -10px rgba(121, 68, 202, 0.14);
+}
+.tech-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.tech-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #008aab;
+  box-shadow: 0 0 6px #008aab;
+}
+.tech-card-footer {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line);
+}
+.tech-detail-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #008aab;
+}
+
+
 

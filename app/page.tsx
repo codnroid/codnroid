@@ -7,6 +7,7 @@ import { Technology } from '@/components/site/technology';
 import { Testimonials, FAQ } from '@/components/site/questions';
 import { ProjectPlanner } from '@/components/site/project-planner';
 import { FloatingWhatsApp } from '@/components/site/floating-whatsapp';
+import { ScrollRevealProvider } from '@/components/site/scroll-reveal';
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
       </main>
       <Footer />
       <FloatingWhatsApp />
+      <ScrollRevealProvider />
     </div>
   );
 }
