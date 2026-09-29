@@ -1,0 +1,37 @@
+# Codnroid implementation tickets
+
+Work sequentially. Only one ticket may be In Progress. Done requires recorded verification.
+
+| ID  | Scope and acceptance criteria                                          | Status | Evidence                                                                                                                                                                                                                     |
+| --- | ---------------------------------------------------------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| T01 | Scaffold runs; source assets and unverified claims catalogued          | Done   | Sites installed; HTTP 200 on localhost:3000; image review in docs/content-sources.md.                                                                                                                                        |
+| T02 | Tokens, layout, controls, sticky and accessible mobile navigation      | Done   | Typecheck and lint pass; menu supports Escape, focus cycling and scroll lock. Integrated browser checks in T09.                                                                                                              |
+| T03 | Brief hero copy, original product UI, supported technology strip       | Done   | Typecheck/lint pass; page returns HTTP 200; all sample UI identified as illustrative.                                                                                                                                        |
+| T04 | Three reviewed project showcases, inline details, featured project     | Done   | Typecheck/lint pass; original images reviewed; Easy Travel metrics excluded by viewport crop; native details controls.                                                                                                       |
+| T05 | Eight services, six principles, seven process stages                   | Done   | Typecheck/lint pass; 8 services, 6 principles, 7 stages in structured data; responsive grids and vertical mobile timeline.                                                                                                   |
+| T06 | Technology categories, honest testimonial placeholder, eight FAQs      | Done   | Typecheck/lint pass; 2 supported categories; native keyboard-operable details; no invented testimonial content.                                                                                                              |
+| T07 | Google Form configuration, contact states, complete footer             | Done   | Typecheck/lint pass; 5 configuration cases pass (empty, short/full Google Form, unrelated URL, unsafe scheme); footer anchors target real sections.                                                                          |
+| T08 | Metadata, local noindex, production SEO configuration, reserved routes | Done   | Typecheck/lint pass; robots deny indexing locally; sitemap contains only published routes when origin configured; responsive WebP sources added.                                                                             |
+| T09 | Format, lint, types, build, responsive and accessibility checks        | Done   | Format check, lint, TypeScript and production build pass. Playwright: 4/4 tests; 7 viewport widths; 0 axe WCAG violations at 390/1440; keyboard, images, anchors, runtime and SEO checks pass. npm audit: 0 vulnerabilities. |
+
+## Follow-up fixes
+
+| ID  | Scope                                                                                 | Status | Evidence                                                                                                                                                                                    |
+| --- | ------------------------------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| T10 | Readable heading spacing, text selection, content focus outline, complete About motif | Done   | Heading tracking and line height relaxed; selected gradient text verified dark in Chrome; full SVG motif visually checked; 4 browser tests and lint/typecheck/build pass.                   |
+| T11 | Wide-screen layout uses available space without shrinking the site                    | Done   | Canvas expands to 2400px; 1800px+ hero, navigation, typography and product scene scale proportionally; 1920px/2560px added to responsive tests; 4 browser tests pass.                       |
+| T12 | Persistent, system-aware dark mode with accessible desktop/mobile controls            | Done   | System preference and saved choice initialize before paint; desktop/mobile toggles added; dark surfaces visually checked; 5 browser tests and WCAG contrast audit pass.                     |
+| T13 | GitHub repository, production deployment, and codnroid.com mapping                    | Done   | Cloudflare Worker serves codnroid.com over HTTPS; www redirects to apex; robots and sitemap verified. The former Sites deployment is owner-only and its pending domain mapping was removed. |
+| T14 | Accessible interactive process stepper                                                | Done   | Click, arrow keys, Home/End, selected detail panel, responsive layout, reduced motion, dark mode, and automated accessibility checks pass.                                                  |
+| T15 | Expanded selected process-stage content                                               | Done   | Each selected stage now shows its focus, three working areas, and collaboration approach from centralized content data; typecheck, lint, build, and browser checks pass.                    |
+| T16 | CTA conversation card and compact brand motif                                         | Done   | Project brief and next-step controls support mouse and keyboard interaction, one panel at a time, responsive stacking, dark mode, reduced motion, and browser accessibility checks.         |
+| T17 | Guided CTA project starter                                                            | Done   | Goals, People, and Timing stages are visible by default, keyboard-operable, and update guidance plus progress; conversation path, responsive behavior, dark mode, and browser checks pass.  |
+| T18 | CTA visual hierarchy and project-starter surface                                      | Done   | High-contrast studio surface, stage rail, counter, spectrum atmosphere, integrated motif, responsive layout, and browser accessibility checks pass.                                         |
+| T19 | Light editorial CTA and abstract spectrum mark                                        | Done   | Removed code glyphs and dark dashboard styling; added three-bar spectrum mark, light segmented stages, refined dark-mode surface, and passing browser contrast checks.                      |
+
+## Decisions
+
+- Local delivery; 75% light editorial / 25% spectrum atmosphere.
+- Preserve the older project. Reuse reviewed images, never assume old claims are verified.
+- Google Form URL pending; contact section must report this honestly.
+- No fabricated testimonials, metrics, clients, contact details, or legal policies.

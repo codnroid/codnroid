@@ -1,0 +1,23 @@
+{
+  "name": "codnroid",
+  "main": "worker.ts",
+  "compatibility_date": "2026-09-07",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "dist/client"
+  },
+  "routes": [
+    {
+      "pattern": "codnroid.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.codnroid.com",
+      "custom_domain": true
+    }
+  ],
+  "workers_dev": false,
+  "observability": {
+    "enabled": true
+  }
+}
