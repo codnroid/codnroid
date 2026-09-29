@@ -15,6 +15,7 @@ interface ShowcaseProject {
   category: string;
   tagline: string;
   image: string;
+  mobileImage: string;
   badge: string;
   speed: string;
   stack: string;
@@ -32,6 +33,7 @@ const heroShowcaseProjects: ShowcaseProject[] = [
     category: 'LUXURY E-COMMERCE',
     tagline: 'High-conversion minimalist apparel storefront',
     image: '/images/outvibe.jpg',
+    mobileImage: '/images/hero-mobile.jpg',
     badge: 'Flagship Storefront',
     speed: '0.38s LCP',
     stack: 'Next.js 15 · Tailwind · Stripe',
@@ -46,7 +48,8 @@ const heroShowcaseProjects: ShowcaseProject[] = [
     name: 'CloudMetric AI',
     category: 'ENTERPRISE SAAS',
     tagline: 'Autonomous cloud cost & telemetry dashboard',
-    image: '/images/outvibe.jpg', // fallback or interactive canvas
+    image: '/images/hero-saas.jpg',
+    mobileImage: '/images/hero-analytics.jpg',
     badge: 'Real-Time Telemetry',
     speed: '12ms Query',
     stack: 'React · TypeScript · Go Engine',
@@ -62,6 +65,7 @@ const heroShowcaseProjects: ShowcaseProject[] = [
     category: 'GLOBAL TRAVEL PLATFORM',
     tagline: 'Multi-destination discovery & booking engine',
     image: '/images/easy-travel.jpg',
+    mobileImage: '/images/hero-mobile.jpg',
     badge: 'Mobile & Web Engine',
     speed: '60 FPS',
     stack: 'React Native · Node · PostgreSQL',
@@ -70,6 +74,22 @@ const heroShowcaseProjects: ShowcaseProject[] = [
     mobileHeadline: 'Kyoto Sanctuary',
     mobileSub: 'Flight & luxury ryokan confirmed',
     themeColor: '#f29526',
+  },
+  {
+    id: 'nexus',
+    name: 'Nexus Digital',
+    category: 'PRODUCT GROWTH SUITE',
+    tagline: 'Modern business operations & analytics platform',
+    image: '/images/hero-marketing.jpg',
+    mobileImage: '/images/hero-analytics.jpg',
+    badge: 'B2B Growth Platform',
+    speed: '0.42s LCP',
+    stack: 'Next.js · PostgreSQL · Docker',
+    metricLabel: 'Active Workflows',
+    metricValue: '2.4M',
+    mobileHeadline: 'Quarterly Ingress',
+    mobileSub: 'Conversion funnel up 32%',
+    themeColor: '#10b981',
   },
 ];
 
@@ -159,86 +179,36 @@ export function ProductScene() {
             </div>
           </div>
 
-          {/* Main Visual Display Area */}
+          {/* Main Visual Display Area: Real Dribbble-Grade UI Artwork */}
           <div className="hero-window-canvas">
-            {project.id === 'cloudmetric' ? (
-              /* Rich Interactive SaaS Dashboard */
-              <div className="hero-saas-canvas">
-                <div className="saas-header-row">
-                  <div>
-                    <span className="saas-kicker">AUTONOMOUS TELEMETRY</span>
-                    <h3>Cloud Infrastructure Health</h3>
-                  </div>
-                  <span className="saas-chip">Production Cluster · us-east-1</span>
+            <div className="hero-image-canvas">
+              <Image
+                unoptimized
+                src={project.image}
+                width={1440}
+                height={840}
+                alt={`${project.name} Digital Product Interface`}
+                className="hero-project-img"
+                priority
+              />
+              <div className="hero-image-glass-overlay">
+                <div className="glass-meta">
+                  <span className="glass-kicker">{project.category}</span>
+                  <h4>{project.name}</h4>
+                  <p>{project.tagline}</p>
                 </div>
-
-                <div className="saas-stats-grid">
-                  <div className="saas-stat-card">
-                    <small>QUERY LATENCY</small>
-                    <strong>12.4 ms</strong>
-                    <span className="stat-gain text-cyan">⚡ 99.98% SLA</span>
-                  </div>
-                  <div className="saas-stat-card">
-                    <small>COST OPTIMIZATION</small>
-                    <strong>$14,820 / mo</strong>
-                    <span className="stat-gain text-green">▼ 38.2% saved</span>
-                  </div>
-                  <div className="saas-stat-card">
-                    <small>ACTIVE WORKFLOWS</small>
-                    <strong>1,280 ops</strong>
-                    <span className="stat-gain text-purple">▲ 4.2x scaling</span>
-                  </div>
-                </div>
-
-                <div className="saas-chart-mock">
-                  <div className="chart-header">
-                    <span>Cluster Throughput & Ingress</span>
-                    <span className="chart-period">Last 24 Hours</span>
-                  </div>
-                  <div className="chart-bars-wrap">
-                    {[45, 60, 52, 78, 92, 85, 70, 95, 88, 76, 84, 98, 90, 82].map(
-                      (h, i) => (
-                        <div
-                          key={i}
-                          className="chart-bar"
-                          style={{ height: `${h}%` }}
-                        />
-                      )
-                    )}
-                  </div>
+                <div className="glass-tags">
+                  <span className="glass-tag">{project.stack}</span>
+                  <span className="glass-tag highlight">
+                    {project.metricLabel}: {project.metricValue}
+                  </span>
                 </div>
               </div>
-            ) : (
-              /* Visual Project Showcase Screenshot with High-End Overlay */
-              <div className="hero-image-canvas">
-                <Image
-                  unoptimized
-                  src={project.image}
-                  width={1440}
-                  height={820}
-                  alt={`${project.name} Digital Product Interface`}
-                  className="hero-project-img"
-                  priority
-                />
-                <div className="hero-image-glass-overlay">
-                  <div className="glass-meta">
-                    <span className="glass-kicker">{project.category}</span>
-                    <h4>{project.name}</h4>
-                    <p>{project.tagline}</p>
-                  </div>
-                  <div className="glass-tags">
-                    <span className="glass-tag">{project.stack}</span>
-                    <span className="glass-tag highlight">
-                      {project.metricLabel}: {project.metricValue}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            )}
+            </div>
           </div>
         </div>
 
-        {/* Floating Mobile Companion Mockup */}
+        {/* Floating Mobile Companion Mockup displaying real mobile app UI */}
         <div className="hero-mobile-device" aria-hidden="true">
           <div className="mobile-dynamic-island">
             <span className="island-camera" />
@@ -253,10 +223,21 @@ export function ProductScene() {
               </div>
             </div>
 
-            <div className="mobile-app-banner">
-              <span className="app-category">{project.category}</span>
-              <h5>{project.mobileHeadline}</h5>
-              <p>{project.mobileSub}</p>
+            {/* Mobile Real Photo Preview */}
+            <div className="mobile-photo-wrap">
+              <Image
+                unoptimized
+                src={project.mobileImage}
+                width={360}
+                height={260}
+                alt="Mobile Product Interface"
+                className="mobile-img"
+              />
+              <div className="mobile-photo-scrim" />
+              <div className="mobile-photo-copy">
+                <span className="app-category">{project.category}</span>
+                <h5>{project.mobileHeadline}</h5>
+              </div>
             </div>
 
             <div className="mobile-kpi-card">
@@ -270,7 +251,7 @@ export function ProductScene() {
             </div>
 
             <div className="mobile-action-pill">
-              <span>Explore Mobile Flow</span>
+              <span>Inspect Flow</span>
               <ArrowUpRight size={13} />
             </div>
           </div>

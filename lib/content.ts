@@ -660,6 +660,9 @@ export const projects: Project[] = [
       'Comprehensive real-time observability dashboard tracking API latency, token consumption, error rates, and serverless cluster health.',
     description:
       'Engineered for engineering leads and founders who require crystal-clear visibility into API health, distributed traces, and cloud spending.',
+    image: 'hero-saas',
+    width: 1200,
+    height: 800,
     deviceType: 'browser',
     services: ['SaaS Product Design', 'Dashboard Engineering', 'Telemetry Pipelines'],
     challenge:
@@ -698,6 +701,9 @@ export const projects: Project[] = [
       'A commanding, content-led corporate web presence built to establish authority, generate qualified inbound inquiries, and present client ROI.',
     description:
       'Designed to turn high-value executive prospects into qualified discovery calls with interactive capability matrixes and case-study evidence.',
+    image: 'hero-marketing',
+    width: 1200,
+    height: 800,
     deviceType: 'browser',
     services: ['Web Development', 'CRO Strategy', 'SEO Architecture'],
     challenge:
