@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight, Atom, Braces, Wind } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Atom, Braces, Wind, Zap, Shield, Sparkles } from 'lucide-react';
 import { ProjectLink } from './primitives';
 import { ProductScene } from './product-scene';
 
@@ -27,6 +27,22 @@ export function Hero() {
               <ArrowDown size={16} aria-hidden="true" />
             </a>
           </div>
+
+          <div className="hero-trust-chips">
+            <span className="trust-chip">
+              <Zap size={13} color="#7944ca" />
+              <span>Sub-Second Performance</span>
+            </span>
+            <span className="trust-chip">
+              <Shield size={13} color="#008aab" />
+              <span>Enterprise Reliability</span>
+            </span>
+            <span className="trust-chip">
+              <Sparkles size={13} color="#f29526" />
+              <span>Zero Template Slop</span>
+            </span>
+          </div>
+
           <p className="hero-capabilities">
             Web Development <span>·</span> Mobile Apps <span>·</span> SaaS{' '}
             <span>·</span> E-Commerce <span>·</span> UI/UX Design
