@@ -1581,10 +1581,10 @@ p {
   align-items: center;
   justify-content: center;
 }
-.project-yummy-catalog .project-visual {
+.project-food-and-kitchen .project-visual {
   background: #f0e9dc;
 }
-.project-happymoments-catalog .project-visual {
+.project-easy-travel .project-visual {
   background: #e3eaf0;
   height: 320px;
 }
@@ -1604,10 +1604,10 @@ p {
   transform: rotate(-4deg);
   transition: transform 0.5s;
 }
-.project-yummy-catalog .project-browser {
+.project-food-and-kitchen .project-browser {
   transform: rotate(4deg);
 }
-.project-happymoments-catalog .project-browser {
+.project-easy-travel .project-browser {
   transform: rotate(-3deg);
 }
 .project-card:hover .project-browser {
@@ -1636,13 +1636,13 @@ p {
   width: 100%;
   height: auto;
 }
-.catalog-crop {
+.travel-crop {
   aspect-ratio: 1.96;
 }
-.catalog-crop img {
+.travel-crop img {
   margin-top: 0;
 }
-.project-happymoments-catalog .catalog-crop {
+.project-easy-travel .travel-crop {
   aspect-ratio: 2.5;
 }
 .project-visual-label {
@@ -1855,7 +1855,7 @@ p {
   .project-card:nth-child(3) {
     column-gap: 35px;
   }
-  .project-happymoments-catalog .project-visual {
+  .project-easy-travel .project-visual {
     height: 300px;
   }
 }
@@ -1872,7 +1872,7 @@ p {
   .project-card:nth-child(3) .project-meta {
     margin-top: 0;
   }
-  .project-happymoments-catalog .project-visual {
+  .project-easy-travel .project-visual {
     height: 280px;
   }
   .featured-section {
@@ -1914,7 +1914,7 @@ p {
     margin-top: 24px;
   }
   .project-visual,
-  .project-happymoments-catalog .project-visual {
+  .project-easy-travel .project-visual {
     height: 245px;
   }
   .project-meta h3 {
@@ -3423,10 +3423,10 @@ p {
 [data-theme='dark'] .project-visual {
   background: #2b2328;
 }
-[data-theme='dark'] .project-yummy-catalog .project-visual {
+[data-theme='dark'] .project-food-and-kitchen .project-visual {
   background: #2c2921;
 }
-[data-theme='dark'] .project-happymoments-catalog .project-visual {
+[data-theme='dark'] .project-easy-travel .project-visual {
   background: #202932;
 }
 [data-theme='dark'] .project-browser {

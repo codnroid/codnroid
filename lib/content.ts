@@ -453,26 +453,26 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: 'yummy-catalog',
-    name: 'Yummy Catalog',
-    tagline: 'Playful Food Delivery Catalog',
+    id: 'food-and-kitchen',
+    name: 'F & K',
+    tagline: 'Artisanal Culinary & Kitchenware Platform',
     category: 'E-Commerce',
     filterCategory: 'ecommerce',
-    industry: 'Food Delivery',
-    type: 'Concept Project',
+    industry: 'Food & Culinary Retail',
+    type: 'Demo Product',
     summary:
-      'A playful catalog that makes finding a delicious next meal feel effortless.',
+      'A warm, tactile shopping experience bringing farm-to-table gourmet ingredients and chef-grade cookware together.',
     description:
-      'An appetite-led food-delivery experience with quick category browsing, clear pricing, ratings, and ordering actions.',
-    image: 'yummy-catalog',
-    width: 1672,
-    height: 941,
+      'Fresh thinking for the everyday culinary shopping experience, uniting chef recommendations, seasonal box subscriptions, and direct commerce.',
+    image: 'food-and-kitchen',
+    width: 1440,
+    height: 751,
     deviceType: 'browser',
-    services: ['Interface Design', 'E-Commerce', 'Ordering Flow'],
+    services: ['E-Commerce Architecture', 'Product Storytelling', 'Checkout Flow'],
     challenge:
-      'Help hungry customers move quickly from broad cravings to a confident meal choice.',
+      'Harmonizing high-ticket cookware equipment with recurring perishable pantry subscriptions under a single cohesive brand atmosphere.',
     solution:
-      'Combined playful color, appetite-led imagery, quick category browsing, and clear pricing and ordering actions.',
+      'Engineered dual browsing pathways with category switching, combined one-click subscription bundles, and rich recipe-linked product cards.',
     technologies: ['React', 'Next.js', 'Tailwind CSS', 'Node.js', 'Redis'],
     features: [
       'Recurring gourmet subscription engine',
@@ -494,26 +494,26 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: 'happymoments-catalog',
-    name: 'HappyMoments',
-    tagline: 'Curated Travel Booking Platform',
+    id: 'easy-travel',
+    name: 'Easy Travel',
+    tagline: 'Adventure Discovery & Flight Booking Portal',
     category: 'Websites',
     filterCategory: 'websites',
     industry: 'Travel & Hospitality',
     type: 'Demo Product',
     summary:
-      'Curated stays and journeys designed around memorable escapes.',
+      'Clean, intuitive travel search and booking interface connecting flights, boutique hotels, and curated expeditions.',
     description:
-      'An inspiring travel booking interface for flights, hotels, and holiday packages.',
-    image: 'happymoments-catalog-cover',
-    width: 1672,
-    height: 940,
+      'Making the next expedition easy to discover with an uncluttered trip-selector, transparent fee breakdowns, and real-time seat reservation.',
+    image: 'easy-travel',
+    width: 1440,
+    height: 799,
     deviceType: 'browser',
-    services: ['Interface Design', 'Search UX', 'Booking Platform'],
+    services: ['Web Platform', 'Search UX', 'Booking Engine'],
     challenge:
-      'Make trip discovery feel inspiring while keeping essential booking options immediately accessible.',
+      'Eliminating cognitive overload common to traditional aggregator websites while handling complex multi-city flight and lodging schedules.',
     solution:
-      'Paired immersive destination imagery with a focused search panel for flights, hotels, and holiday packages.',
+      'Focused the top viewport on an intuitive interactive search panel with immediate pricing feedback, interactive calendar inputs, and clear filters.',
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'REST APIs', 'Mapbox'],
     features: [
       'Multi-city & round-trip fare comparison',
@@ -731,3 +731,4 @@ export const projects: Project[] = [
     ],
   },
 ];
+
