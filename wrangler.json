@@ -17,6 +17,18 @@
     }
   ],
   "workers_dev": false,
+  "env": {
+    "dev": {
+      "name": "codnroid-dev",
+      "routes": [
+        {
+          "pattern": "dev.codnroid.com",
+          "custom_domain": true
+        }
+      ],
+      "workers_dev": false
+    }
+  },
   "observability": {
     "enabled": true
   }

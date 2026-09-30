@@ -10,6 +10,7 @@
     "build": "vinext build",
     "start": "vinext start -H 0.0.0.0 -p 3000",
     "deploy": "wrangler deploy",
+    "deploy:dev": "CLOUDFLARE_ENV=dev vinext build && wrangler deploy --env dev",
     "lint": "oxlint",
     "format": "oxfmt",
     "typecheck": "tsc --noEmit",
